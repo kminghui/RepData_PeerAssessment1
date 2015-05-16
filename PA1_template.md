@@ -1,14 +1,16 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 ## Settings
 
 ```r
 library(plyr)
+```
+
+```
+## Warning: package 'plyr' was built under R version 3.1.3
+```
+
+```r
 library(lattice)
 echo = TRUE ## Echo the codes
 ```
@@ -37,7 +39,7 @@ sumsteps <- ddply(tab1, "date", summarise, total = sum(steps, na.rm = TRUE))
 hist(sumsteps$total, breaks = 20, col = "red", main = "Total number of steps taken each day", xlab = "Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 * Calculate and report the mean and median of the total number of steps taken per day
 
@@ -72,7 +74,7 @@ plot(avesteps$interval, avesteps$mean,
      col = "blue")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -138,7 +140,7 @@ sumstepsNew <- ddply(Newtab, "date", summarise, total = sum(steps, na.rm = TRUE)
 hist(sumstepsNew$total, breaks = 20, col = "red", main = "Total number of steps taken each day", xlab = "Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 ```r
 mean(sumstepsNew$total)
@@ -210,7 +212,7 @@ Newavesteps <- ddply(Newtab, .(interval, daytype), summarise, mean = mean(steps,
 xyplot(mean ~ interval | daytype,Newavesteps, type = 'l', ylab = "number of steps", layout = c(1, 2))
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
 
 ###--End of Assignment--
 
